@@ -3,6 +3,7 @@ const buttonCloseModal = document.querySelectorAll('.btn-close')
 const modalWrapper = document.querySelectorAll('.modal-wrapper')
 const bgModal = document.querySelector('.bg-modal')
 const modal = document.querySelectorAll('.modal')
+const body = document.querySelector('body')
 
 // Canceling modal click event
 modalWrapper.forEach(modal => {
@@ -64,6 +65,7 @@ function closeModal() {
   removeClass('.local', 'show-local')
   removeClass('.modal-text p', 'show-text')
   removeClass('.modal-img', 'show-modal-img')
+  body.style.overflow = 'visible'
   setTimeout(function () {
     modal.forEach(modal => {
       modal.style.display = 'none'
@@ -73,6 +75,7 @@ function closeModal() {
 
 // Open modal
 function openModal() {
+  body.style.overflow = 'hidden'
   addNewClass('.bg-modal', 'show-bg-modal')
   addNewClass('.local', 'show-local')
   addNewClass('.modal-text p', 'show-text')

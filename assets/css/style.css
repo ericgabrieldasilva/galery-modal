@@ -5,7 +5,9 @@
   outline: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, .7) #fff;
+  font-family: 'Pop background-color: pins', sans-serif;
 }
 
 html,
@@ -32,10 +34,6 @@ body {
   border-radius: .25rem;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #000;
-}
 
 .container {
   max-width: 1400px;

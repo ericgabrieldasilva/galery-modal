@@ -13,6 +13,7 @@ body {
   height: 100%;
 }
 
+
 .container {
   max-width: 1400px;
   padding: 0 2%;
@@ -21,36 +22,56 @@ body {
 
 .box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
 
 .box-single {
   height: 250px;
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.box-single:hover button {
-  display: block;
+.box-single::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -4rem;
+  z-index: 1;
+  background-image: linear-gradient(0deg, #000, transparent, transparent);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.box-single:hover::before{
+  bottom: 0;
+}
+
+.box-single p{
+  position: absolute;
+  bottom: -4rem;
+  transition: .5s;
+  z-index: 2;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.box-single:hover p {
+  bottom: 0;
 }
 
 .box-single img {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-
-.box-single button {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  left: 0;
-  top: 0;
-  cursor: pointer;
-  font-size: 1.25rem;
-  color: #fff;
-  display: none;
 }
 
 .bg-modal{
@@ -61,28 +82,25 @@ body {
   height: 100%;
   z-index: 999;
   transform-origin: left;
-  animation: animateHideBg .5s forwards;
+  animation: animateHideBg .5s ease-in-out forwards;
   animation-delay: 1.5s;
 }
 
 .bg-modal.show-bg-modal{
   display: block;
   transform: scaleX(0);
-  opacity: 0;
-  animation: animateShowBg .5s forwards;
+  animation: animateShowBg .5s ease-in-out forwards;
 }
 
 @keyframes animateShowBg{
   to{
     transform: scaleX(1);
-    opacity: 1;
   }
 }
 
 @keyframes animateHideBg{
   to{
     transform: scaleX(0);
-    opacity: 0;
   }
 }
 

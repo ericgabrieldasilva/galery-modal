@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.box-single {
+  height: 250px;
+  position: relative;
+}
+
+.box-single:hover button {
+  display: block;
+}
+
+.box-single img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.box-single button {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #fff;
+  display: none;
+}
+
+.bg-modal{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  transform-origin: left;
+  animation: animateHideBg .5s forwards;
+  animation-delay: 1.5s;
+}
+
+.bg-modal.show-bg-modal{
+  display: block;
+  transform: scaleX(0);
+  opacity: 0;
+  animation: animateShowBg .5s forwards;
+}
+
+@keyframes animateShowBg{
+  to{
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animateHideBg{
+  to{
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 1000;
+  transition: 1s;
+  animation: animateHide 1s ease-in-out forwards;
+  animation-delay: .5s;
+}
+
+.modal.show {
+  left: 500px;
+  display: grid;
+  opacity: 0;
+  animation: animateShow 1s ease-in-out forwards;
+  animation-delay: .5s;
+}
+
+@keyframes animateShow {
+  to{
+    display: grid;
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateHide {
+  to{
+    display: none;
+    left: 500px;
+    opacity: 0;
+  }
+}
+
+
+.modal-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  max-width: 900px;
+  position: relative;
+}
+
+.modal-description {
+  display: contents;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-img{
+  position: relative;
+  left: 0;
+  animation: animateHideModalImg 1s ease-in-out forwards;
+  animation-delay: .5s;
+}
+
+.modal-img.show-modal-img{
+  left: -1000px;
+  opacity: 0;
+  animation: animateShowModalImg 1s ease-in-out forwards;
+  animation-delay: .5s;
+}
+
+@keyframes animateShowModalImg{
+  to{
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateHideModalImg{
+  to{
+    left: -1000px;
+    opacity: 0;
+  }
+}
+
+.modal-img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.img {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.modal-text {
+  background-color: #fff;
+  padding: 10rem 5rem;
+  height: 100%;
+}
+
+.local{
+  position: relative;
+  top: 0;
+  animation: animateHideLocal .5s forwards;
+}
+
+.local h2 {
+  font-size: 2rem;
+  line-height: 2.8rem;
+  text-transform: uppercase;
+}
+
+.local h3 {
+  font-size: 1.25rem;
+  padding-bottom: 2rem;
+  font-weight: 400;
+  opacity: 60%;
+}
+
+.local.show-local{
+  top: -200px;
+  opacity: 0;
+  animation: animateShowLocal .5s forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes animateShowLocal{
+  to{
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateHideLocal{
+  to{
+    top: -200px;
+    opacity: 0;
+  }
+}
+
+.modal-text p {
+  position: relative;
+  bottom: 0;
+  animation: animateHideText .5s forwards;
+}
+
+.modal-text p.show-text{
+  bottom: -200px;
+  opacity: 0;
+  animation: animateShowText .5s forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes animateShowText{
+  to{
+    bottom: 0;
+    opacity: 90%;
+  }
+}
+
+@keyframes animateHideText{
+  to{
+    bottom: -200px;
+    opacity: 0;
+  }
+}
+
+.btn-close {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: #000;
+  clip-path: circle();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-close span {
+  position: relative;
+  height: 1rem;
+  width: 2px;
+}
+
+.btn-close span::before,
+.btn-close span::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.btn-close span::before {
+  transform: rotate(45deg);
+}
+
+.btn-close span::after {
+  transform: rotate(-45deg);
+}

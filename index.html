@@ -2,112 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Eric Gabriel - TwGoblin">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modal</title>
+  <title>Galery</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 <body>
 
+  <div class="overlay">
+    <div class="loading"></div>
+    <div class="loading"></div>
+    <div class="loading"></div>
+  </div><!--overlay-->
+
   <div class="bg-modal"></div>
+  <section class="galery">
+    <h1>Galeria</h1>
+    <div class="container">
+      <div class="box">
+        <div class="box-wrapper">
 
-  <div class="container">
-    <div class="box">
-      <div class="box-wrapper">
+          <div class="box-single" bg-color="#aba297">
+            <img src="./assets/images/cristo-redentor.jpg" alt="">
+            <div class="title">
+              <p>Cristo redentor</p>
+              <p>Brasil</p>
+            </div><!--title-->
+          </div><!--box-single-->
 
-        <div class="box-single" bg-color="#aba297">
-          <img src="./assets/images/cristo-redentor.jpg" alt="">
-          <p>Cristo redentor</p>
-        </div><!--box-single-->
+          <div class="modal">
+            <div class="modal-wrapper">
+              <div class="modal-description">
+                <button class="btn-close">
+                  <span></span>
+                </button><!--btn-close-->
+                <div class="modal-img">
+                  <div class="img" style="background-image: url(./assets/images/cristo-redentor.jpg);"></div>
+                </div><!--modal-img-->
 
-        <div class="modal">
-          <div class="modal-wrapper">
-            <div class="modal-description">
-              <button class="btn-close">
-                <span></span>
-              </button><!--btn-close-->
-              <div class="modal-img">
-                <div class="img" style="background-image: url(./assets/images/cristo-redentor.jpg);"></div>
-              </div><!--modal-img-->
+                <div class="modal-text">
+                  <div class="local">
+                    <h2>Cristo Redentor</h2>
+                    <h3>Brasil</h3>
+                  </div><!--local-->
+                  <p>Cristo Redentor é uma estátua art déco que retrata Jesus Cristo, localizada no topo do morro do Corcovado, a 709 metros acima do nível do mar, no Parque Nacional da Tijuca, com vista para a maior parte da cidade do Rio de Janeiro, Brasil. Em 2007 foi eleito informalmente como uma das sete maravilhas do mundo moderno.</p>
+                </div><!--modal-text-->
+              </div><!--modal-description-->
+            </div><!--modal-wrapper-->
+          </div><!--modal-->
+        </div><!--box-wrapper-->
 
-              <div class="modal-text">
-                <div class="local">
-                  <h2>Cristo redentor</h2>
-                  <h3>Brasil</h3>
-                </div><!--local-->
-                <p>Cristo Redentor é uma estátua art déco que retrata Jesus Cristo, localizada no topo do morro do Corcovado, a 709 metros acima do nível do mar, no Parque Nacional da Tijuca, com vista para a maior parte da cidade do Rio de Janeiro, Brasil. Em 2007 foi eleito informalmente como uma das sete maravilhas do mundo moderno.</p>
-              </div><!--modal-text-->
-            </div><!--modal-description-->
-          </div><!--modal-wrapper-->
-        </div><!--modal-->
-      </div><!--box-wrapper-->
+        <div class="box-wrapper">
 
-      <div class="box-wrapper">
+          <div class="box-single" bg-color="#a48f76">
+            <img src="./assets/images/muralha.jpg" alt="">
+            <div class="title">
+              <p>A grande muralha da China</p>
+              <p>China</p>
+            </div><!--title-->
+          </div><!--box-single-->
 
-        <div class="box-single" bg-color="#a48f76">
-          <img src="./assets/images/muralha.jpeg" alt="">
-          <p>A grande muralha da china</p>
-        </div><!--box-single-->
+          <div class="modal">
+            <div class="modal-wrapper">
+              <div class="modal-description">
+                <button class="btn-close">
+                  <span></span>
+                </button><!--btn-close-->
+                <div class="modal-img">
+                  <div class="img" style="background-image: url(./assets/images/muralha.jpg);"></div>
+                </div><!--modal-img-->
 
-        <div class="modal">
-          <div class="modal-wrapper">
-            <div class="modal-description">
-              <button class="btn-close">
-                <span></span>
-              </button><!--btn-close-->
-              <div class="modal-img">
-                <div class="img" style="background-image: url(./assets/images/muralha.jpeg);"></div>
-              </div><!--modal-img-->
+                <div class="modal-text">
+                  <div class="local">
+                    <h2>A grande muralha da China</h2>
+                    <h3>China</h3>
+                  </div><!--local-->
+                  <p>Grande Muralha da China é uma série de fortificações feitas de pedra, tijolo, terra compactada, madeira e outros materiais, geralmente construída ao longo de uma linha leste-oeste através das fronteiras históricas do norte da China para proteger os Estados e impérios chineses contra as invasões dos vários grupos nômades das estepes da Eurásia, principalmente os mongóis.</p>
+                </div><!--modal-text-->
+              </div><!--modal-description-->
+            </div><!--modal-wrapper-->
+          </div><!--modal-->
+        </div><!--box-wrapper-->
 
-              <div class="modal-text">
-                <div class="local">
-                  <h2>A grande muralha da China</h2>
-                  <h3>China</h3>
-                </div><!--local-->
-                <p>Grande Muralha da China é uma série de fortificações feitas de pedra, tijolo, terra compactada, madeira e outros materiais, geralmente construída ao longo de uma linha leste-oeste através das fronteiras históricas do norte da China para proteger os Estados e impérios chineses contra as invasões dos vários grupos nômades das estepes da Eurásia, principalmente os mongóis.</p>
-              </div><!--modal-text-->
-            </div><!--modal-description-->
-          </div><!--modal-wrapper-->
-        </div><!--modal-->
-      </div><!--box-wrapper-->
+        <div class="box-wrapper">
 
-      <div class="box-wrapper">
+          <div class="box-single" bg-color="#62696a">
+            <img src="./assets/images/machu-picchu.jpg" alt="">
+            <div class="title">
+              <p>Machu Picchu</p>
+              <p>Peru</p>
+            </div><!--title-->
+          </div><!--box-single-->
 
-        <div class="box-single" bg-color="#62696a">
-          <img src="./assets/images/machu-picchu.jpg" alt="">
-          <p>Machu picchu</p>
-        </div><!--box-single-->
+          <div class="modal">
+            <div class="modal-wrapper">
+              <div class="modal-description">
+                <button class="btn-close">
+                  <span></span>
+                </button><!--btn-close-->
+                <div class="modal-img">
+                  <div class="img" style="background-image: url(./assets/images/machu-picchu.jpg);"></div>
+                </div><!--modal-img-->
 
-        <div class="modal">
-          <div class="modal-wrapper">
-            <div class="modal-description">
-              <button class="btn-close">
-                <span></span>
-              </button><!--btn-close-->
-              <div class="modal-img">
-                <div class="img" style="background-image: url(./assets/images/machu-picchu.jpg);"></div>
-              </div><!--modal-img-->
+                <div class="modal-text">
+                  <div class="local">
+                    <h2>Machu Picchu</h2>
+                    <h3>Peru</h3>
+                  </div><!--local-->
+                  <p>Machu Picchu é uma cidadela inca que fica no alto da Cordilheira dos Andes no Peru, acima do vale do rio Urubamba. Construída no século XV e posteriormente abandonada, ela é conhecida pelas sofisticadas muralhas de pedra contínuas, cujos imensos blocos foram unidos sem o uso de argamassa, pelas construções intrigantes que levam em conta o alinhamento dos astros e pelas vistas panorâmicas. A antiga utilidade dessas construções segue sendo um mistério.</p>
+                </div><!--modal-text-->
+              </div><!--modal-description-->
+            </div><!--modal-wrapper-->
+          </div><!--modal-->
+        </div><!--box-wrapper-->
 
-              <div class="modal-text">
-                <div class="local">
-                  <h2>Machu Picchu</h2>
-                  <h3>Peru</h3>
-                </div><!--local-->
-                <p>Machu Picchu é uma cidadela inca que fica no alto da Cordilheira dos Andes no Peru, acima do vale do rio Urubamba. Construída no século XV e posteriormente abandonada, ela é conhecida pelas sofisticadas muralhas de pedra contínuas, cujos imensos blocos foram unidos sem o uso de argamassa, pelas construções intrigantes que levam em conta o alinhamento dos astros e pelas vistas panorâmicas. A antiga utilidade dessas construções segue sendo um mistério.</p>
-              </div><!--modal-text-->
-            </div><!--modal-description-->
-          </div><!--modal-wrapper-->
-        </div><!--modal-->
-      </div><!--box-wrapper-->
+      </div><!--box-->
+    </div><!--container-->
+  </section><!--galery-->
 
-    </div><!--box-->
-  </div><!--container-->
+  <script src="./assets/js/loading.js"></script>
   <script src="./assets/js/scripts.js"></script>
 
 </body>

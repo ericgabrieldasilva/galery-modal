@@ -1,3 +1,4 @@
+/*---------RESET----------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,7 @@
   text-decoration: none;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, .5) #fff;
+  scrollbar-color: rgba(0, 0, 0, 0.5) #fff;
   font-family: 'Pop background-color: pins', sans-serif;
 }
 
@@ -15,7 +16,12 @@ body {
   height: 100%;
 }
 
-/*Editando a scrollbar*/
+body {
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+/*---------SCROLLBAR-EDIT----------------------------------*/
 
 /* width */
 ::-webkit-scrollbar {
@@ -30,10 +36,79 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, .5);
-  border-radius: .15rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.15rem;
 }
 
+/*---------OVERLAY----------------------------------*/
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay.overlay-hide {
+  transform-origin: bottom;
+  animation: overlayHide .5s linear forwards;
+}
+
+@keyframes overlayHide{
+  to{
+    transform: scaleY(0);
+  }
+}
+
+.loading {
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.7);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  animation: 1s spin infinite linear;
+  position: absolute;
+}
+
+.loading:nth-of-type(2) {
+  animation: 1.25s spin infinite linear;
+  height: 5rem;
+  width: 5rem;
+}
+
+.loading:nth-of-type(3) {
+  animation: 1.5s spin infinite linear;
+  height: 6rem;
+  width: 6rem;
+}
+
+.overlay.overlay-hide .loading{
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*---------SECTION-GALERY----------------------------------*/
+.galery {
+  padding: 2rem 0;
+}
+
+.galery h1 {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  font-family: 'Raleway';
+  color: rgba(0, 0, 0, 0.8);
+}
 
 .container {
   max-width: 1400px;
@@ -47,56 +122,72 @@ body {
   grid-gap: 2rem;
 }
 
+/*---------BOX-SINGLE----------------------------------*/
 .box-single {
-  height: 250px;
+  height: 30vw;
   position: relative;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
   overflow: hidden;
 }
 
-.box-single::before{
-  content: "";
+.box-single::before {
+  content: '';
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
-  bottom: -4rem;
+  top: 0;
   z-index: 1;
-  background-image: linear-gradient(0deg, #000, transparent, transparent);
   cursor: pointer;
-  transition: .5s;
+  transition: background-color 0.3s ease;
 }
 
-.box-single:hover::before{
-  bottom: 0;
-}
-
-.box-single p{
-  position: absolute;
-  bottom: -4rem;
-  transition: .5s;
-  z-index: 2;
-  font-size: 1.25rem;
-  color: #fff;
-  margin-bottom: .5rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.box-single:hover p {
-  bottom: 0;
+.box-single:hover::before {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .box-single img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 0.4s ease;
 }
 
-.bg-modal{
+.box-single:hover img {
+  transform: scale(1.1);
+}
+
+/*---------TITLE-IMG----------------------------------*/
+.title {
+  position: absolute;
+  z-index: 2;
+  left: 1rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.title p {
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0.15rem;
+}
+
+.title p:nth-of-type(2) {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.box-single:hover .title {
+  transform: translateY(-1rem);
+  opacity: 1;
+}
+
+/*---------BACKGROUND-MODAL----------------------------------*/
+.bg-modal {
   position: fixed;
   left: 0;
   top: 0;
@@ -104,32 +195,33 @@ body {
   height: 100%;
   z-index: 999;
   transform-origin: left;
-  animation: animateHideBg .5s ease-in-out forwards;
+  animation: animateHideBg 0.5s ease-in-out forwards;
   animation-delay: 1.5s;
 }
 
-.bg-modal.show-bg-modal{
+.bg-modal.show-bg-modal {
   display: block;
   transform: scaleX(0);
-  animation: animateShowBg .5s ease-in-out forwards;
+  animation: animateShowBg 0.5s ease-in-out forwards;
 }
 
-@keyframes animateShowBg{
-  to{
+@keyframes animateShowBg {
+  to {
     transform: scaleX(1);
   }
 }
 
-@keyframes animateHideBg{
-  to{
+@keyframes animateHideBg {
+  to {
     transform: scaleX(0);
   }
 }
 
+/*---------MODAL----------------------------------*/
 .modal {
   height: 100vh;
   width: 100vw;
-  padding: 1rem;
+  padding: 2rem;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -139,8 +231,7 @@ body {
   z-index: 1000;
   transition: 1s;
   animation: animateHide 1s ease-in-out forwards;
-  animation-delay: .5s;
-
+  animation-delay: 0.5s;
   max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -151,11 +242,11 @@ body {
   display: grid;
   opacity: 0;
   animation: animateShow 1s ease-in-out forwards;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 
 @keyframes animateShow {
-  to{
+  to {
     display: grid;
     left: 0;
     opacity: 1;
@@ -163,13 +254,12 @@ body {
 }
 
 @keyframes animateHide {
-  to{
+  to {
     display: none;
     left: 500px;
     opacity: 0;
   }
 }
-
 
 .modal-wrapper {
   display: grid;
@@ -178,7 +268,6 @@ body {
   position: relative;
 }
 
-
 .modal-description {
   display: contents;
   align-items: center;
@@ -186,29 +275,30 @@ body {
   position: relative;
 }
 
-.modal-img{
+/*---------MODAL-IMG----------------------------------*/
+.modal-img {
   position: relative;
   left: 0;
   animation: animateHideModalImg 1s ease-in-out forwards;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 
-.modal-img.show-modal-img{
+.modal-img.show-modal-img {
   left: -1000px;
   opacity: 0;
   animation: animateShowModalImg 1s ease-in-out forwards;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 
-@keyframes animateShowModalImg{
-  to{
+@keyframes animateShowModalImg {
+  to {
     left: 0;
     opacity: 1;
   }
 }
 
-@keyframes animateHideModalImg{
-  to{
+@keyframes animateHideModalImg {
+  to {
     left: -1000px;
     opacity: 0;
   }
@@ -227,16 +317,17 @@ body {
   background-repeat: no-repeat;
 }
 
+/*---------MODAL-TEXT----------------------------------*/
 .modal-text {
   background-color: #fff;
   padding: 10rem 5rem;
   height: 100%;
 }
 
-.local{
+.local {
   position: relative;
   top: 0;
-  animation: animateHideLocal .5s forwards;
+  animation: animateHideLocal 0.5s forwards;
 }
 
 .local h2 {
@@ -252,22 +343,22 @@ body {
   opacity: 60%;
 }
 
-.local.show-local{
+.local.show-local {
   top: -200px;
   opacity: 0;
-  animation: animateShowLocal .5s forwards;
+  animation: animateShowLocal 0.5s forwards;
   animation-delay: 1.5s;
 }
 
-@keyframes animateShowLocal{
-  to{
+@keyframes animateShowLocal {
+  to {
     top: 0;
     opacity: 1;
   }
 }
 
-@keyframes animateHideLocal{
-  to{
+@keyframes animateHideLocal {
+  to {
     top: -200px;
     opacity: 0;
   }
@@ -276,30 +367,34 @@ body {
 .modal-text p {
   position: relative;
   bottom: 0;
-  animation: animateHideText .5s forwards;
+  animation: animateHideText 0.5s forwards;
+  font-size: 1.15rem;
+  opacity: 60%;
+  line-height: 1.725rem;
 }
 
-.modal-text p.show-text{
+.modal-text p.show-text {
   bottom: -200px;
   opacity: 0;
-  animation: animateShowText .5s forwards;
+  animation: animateShowText 0.5s forwards;
   animation-delay: 1.5s;
 }
 
-@keyframes animateShowText{
-  to{
+@keyframes animateShowText {
+  to {
     bottom: 0;
-    opacity: 90%;
+    opacity: 60%;
   }
 }
 
-@keyframes animateHideText{
-  to{
+@keyframes animateHideText {
+  to {
     bottom: -200px;
     opacity: 0;
   }
 }
 
+/*---------BUTTON----------------------------------*/
 .btn-close {
   position: absolute;
   right: -1rem;
@@ -337,22 +432,14 @@ body {
   transform: rotate(-45deg);
 }
 
-@media screen and (max-width: 1024px){
+/*---------RESPONSIVE----------------------------------*/
+@media screen and (max-width: 1024px) {
   .box {
     grid-template-columns: 1fr 1fr;
   }
-
-  .box-single::before{
-    bottom: 0;
-  }
-
-  .box-single p{
-    bottom: 0;
-  }
-
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .box {
     grid-template-columns: 1fr;
   }
@@ -361,31 +448,30 @@ body {
     display: flex;
     flex-wrap: wrap;
   }
-  
-  
 
-  .modal-text{
+  .box-single {
+    height: 50vw;
+  }
+
+  .modal-text {
     padding: 4rem 2rem;
   }
 
-  .modal-img{
+  .modal-img {
     height: 15rem;
     width: 100%;
   }
 
-  .btn-close{
-    right: .5rem;
-    top: .5rem;
+  .btn-close {
+    right: 0.5rem;
+    top: 0.5rem;
     z-index: 999;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, 0.7);
   }
-
-  
-
 }
 
-@media screen and (max-width: 500px){
-  .modal-img{
+@media screen and (max-width: 500px) {
+  .modal-img {
     height: 12rem;
   }
 }
